@@ -68,17 +68,17 @@ export default function SiteHeader({ sectionsRef }: SiteHeaderProps) {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <button
             onClick={() => scrollToSection('home')}
-            className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-solviro-yellow rounded-lg"
+            className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-solviro-yellow rounded-lg flex-shrink-0"
             aria-label="SolviroStudio Home"
           >
             <img
-              src="/assets/solvirostudio-logo.png"
+              src="/assets/ChatGPT Image Feb 10, 2026, 06_11_32 AM-1.png"
               alt="SolviroStudio"
-              className="h-12 w-auto object-contain"
+              className="h-20 sm:h-24 w-auto object-contain max-w-[280px] sm:max-w-[320px]"
             />
           </button>
 
@@ -102,7 +102,7 @@ export default function SiteHeader({ sectionsRef }: SiteHeaderProps) {
           {/* Mobile Menu Button */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" aria-label="Toggle menu">
+              <Button variant="ghost" size="icon" aria-label="Toggle menu" className="flex-shrink-0">
                 {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </SheetTrigger>

@@ -12,11 +12,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <img
-              src="/assets/solvirostudio-logo.png"
+              src="/assets/ChatGPT Image Feb 10, 2026, 06_11_32 AM-1.png"
               alt="SolviroStudio"
-              className="h-12 w-auto mb-4"
+              className="h-24 w-auto object-contain"
             />
-            <p className="text-gray-400">
+            <p className="text-gray-400 mt-4">
               Meta Ads & Creative Design for Solar Companies
             </p>
           </div>

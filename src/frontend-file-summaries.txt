@@ -1,16 +1,16 @@
 {
   "frontend/src/App.tsx": "Main application component that orchestrates the single-page portfolio layout with all seven sections, using proper ref callbacks that don't return values to fix TypeScript errors.",
-  "frontend/src/components/SiteHeader.tsx": "Sticky header component with logo, desktop/mobile navigation menu, scroll-spy active section highlighting, and smooth anchor scrolling to all seven sections.",
+  "frontend/src/components/SiteHeader.tsx": "Sticky header component with the uploaded SolviroStudio logo (increased to h-20 on mobile, h-24 on desktop with max-width constraints up to 320px), desktop/mobile navigation menu, scroll-spy active section highlighting, and smooth anchor scrolling to all seven sections with increased header height (h-24) to accommodate the larger logo.",
   "frontend/src/components/sections/HeroSection.tsx": "Hero section with exact headline/subheadline copy, full-screen gradient background using brand colors (#FFD233 → #FFA500 → #FF6A00), and \"Get Started Now\" CTA that scrolls to contact.",
   "frontend/src/components/sections/AboutSection.tsx": "About section with exact provided copy, team illustration image, responsive two-column layout, and \"Learn More\" CTA scrolling to services.",
   "frontend/src/components/sections/ServicesSection.tsx": "Services section displaying three solar-focused services (Meta Ads Management, Creative Design, ROI-Focused Lead Generation) with icons, descriptions, and \"Explore Services\" CTA.",
-  "frontend/src/components/sections/PortfolioSection.tsx": "Portfolio showcase with six project cards, each displaying ad creative image, campaign goal, and three performance metrics (leads, CTR, ROAS, etc.), plus \"View Full Portfolio\" CTA.",
+  "frontend/src/components/sections/PortfolioSection.tsx": "Portfolio showcase with 6 project cards supporting both local asset paths and external Pinterest image URLs (configured in portfolioProjects array), with inline comments showing how to paste Pinterest URLs, maintaining all existing layout, hover effects, badges, and text content.",
   "frontend/src/components/sections/ClientResultsSection.tsx": "Client results section with exact intro copy, responsive grid of four campaign results charts/graphics, and \"Get Your Results\" CTA.",
   "frontend/src/components/sections/TestimonialsSection.tsx": "Testimonials section with five solar industry client quotes, avatar initials, company names, supporting text, and CTA to contact.",
   "frontend/src/components/sections/ContactSection.tsx": "Contact section with exact copy, email display (solvirostudio@gmail.com), phone placeholder, validated contact form (name, email, optional phone, message), React Query mutation for backend submission, success/error toast notifications, and \"Contact Me\" submit button.",
   "frontend/src/components/GradientCTAButton.tsx": "Reusable gradient CTA button component that properly extends Button component props using ComponentProps<typeof Button> to support all button attributes including onClick, type, size, and className.",
   "frontend/src/components/SectionShell.tsx": "Reusable section wrapper component providing consistent spacing, max-width container, section title with gradient underline accent, and responsive padding across all sections.",
-  "frontend/src/components/Footer.tsx": "Footer component with logo, quick links, contact info, copyright notice, and caffeine.ai attribution with UTM tracking parameters.",
+  "frontend/src/components/Footer.tsx": "Footer component with the uploaded SolviroStudio logo (increased to h-24), quick links, contact info, copyright notice, and caffeine.ai attribution with UTM tracking parameters.",
   "frontend/src/hooks/useQueries.ts": "React Query mutation hook for submitting contact form data to backend via actor, with automatic query invalidation on success.",
   "frontend/src/lib/utils.ts": "Utility function for merging Tailwind CSS classes using clsx and tailwind-merge for consistent className composition.",
   "frontend/src/index.css": "Global styles with SolviroStudio brand color tokens (#FFD233, #FFA500, #FF6A00) in HSL format, warm neutral base colors, smooth scroll behavior, and light/dark mode support.",
@@ -24,5 +24,6 @@
   "frontend/src/components/ui/avatar.tsx": "Shadcn/ui Avatar component built on Radix UI primitives with image and fallback support for user profile pictures.",
   "frontend/src/components/ui/sheet.tsx": "Shadcn/ui Sheet component (mobile drawer/sidebar) built on Radix UI Dialog primitives with side variants (top, bottom, left, right) and smooth animations.",
   "frontend/src/components/ui/sonner.tsx": "Shadcn/ui Toaster component wrapper for Sonner toast notifications with theme support and consistent styling.",
-  "frontend/src/main.tsx": "Application entry point that wraps the app with QueryClientProvider, InternetIdentityProvider, and ThemeProvider for state management, authentication, and theming support."
+  "frontend/src/main.tsx": "Application entry point that wraps the app with QueryClientProvider, InternetIdentityProvider, and ThemeProvider for state management, authentication, and theming support.",
+  "frontend/src/components/PortfolioProjectImage.tsx": "Reusable image component that safely renders both local asset paths and external Pinterest URLs with lazy loading, error handling, automatic fallback to local images on load failure, and a loading spinner."
 }

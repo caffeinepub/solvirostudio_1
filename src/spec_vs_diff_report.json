@@ -1,99 +1,48 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T06:51:40.908Z",
-  "summary": "The diff adds a React+TS/Tailwind single-page site with sections (Hero, About, Services, Portfolio, Client Results, Testimonials, Contact), a fixed header with the required nav items and active-section highlighting logic, a reusable gradient CTA button, and a Motoko backend method to accept contact form submissions. However, several requirements around using the exact provided copy strings and storing timestamps are not evidenced as implemented, and a few unrequested features/utilities were added.",
+  "generatedAt": "2026-02-15T07:46:05.672Z",
+  "summary": "Diff adds a reusable PortfolioProjectImage component with lazy loading and error fallback, and updates PortfolioSection to document/configure external (Pinterest) URLs in the portfolioProjects data. However, the diff summary is truncated and does not show the actual rendering of images/cards, so key acceptance criteria (using external URL at render-time and ensuring alt text contains project title) cannot be fully verified from the provided evidence.",
   "missing_requirements": [
     {
-      "id": "REQ-4",
-      "requirement": "About section must contain the exact provided paragraph text.",
-      "reason": "The AboutSection copy appears custom and the BuildRequest requires using exact user-provided copy where specified; the diff does not show that exact provided text being used.",
+      "id": "REQ-23",
+      "requirement": "When a Pinterest image URL is provided for a project, the card renders that URL in the image element instead of the local asset path.",
+      "reason": "PortfolioSection.tsx shows comments and a data field (image) that can hold a Pinterest URL, and it imports PortfolioProjectImage, but the truncated diff does not show the JSX where the image component is rendered and which src is passed.",
       "evidence": [
-        "frontend/src/components/sections/AboutSection.tsx"
+        "frontend/src/components/sections/PortfolioSection.tsx (truncated)"
       ]
     },
     {
-      "id": "REQ-7",
-      "requirement": "Client Results section must show the exact provided intro text sentence.",
-      "reason": "The ClientResultsSection intro sentence shown appears to be custom; the exact provided sentence is not evidenced in the diff.",
+      "id": "REQ-24",
+      "requirement": "All portfolio images (local or Pinterest-hosted) include descriptive alt text that contains the project title.",
+      "reason": "PortfolioProjectImage requires an alt prop, but the truncated PortfolioSection diff does not show the call site where alt is constructed, so it’s not verifiable that alt includes the project title for every card.",
       "evidence": [
-        "frontend/src/components/sections/ClientResultsSection.tsx"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "requirement": "Testimonials section must include the exact provided supporting text.",
-      "reason": "The TestimonialsSection supporting text shown appears custom; the exact provided supporting text is not evidenced in the diff.",
-      "evidence": [
-        "frontend/src/components/sections/TestimonialsSection.tsx"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "requirement": "Contact Us section must show the exact provided text.",
-      "reason": "The ContactSection intro text shown appears custom; the exact provided text is not evidenced in the diff.",
-      "evidence": [
-        "frontend/src/components/sections/ContactSection.tsx"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "requirement": "Backend must store contact submissions including a timestamp.",
-      "reason": "The backend ContactForm type includes id, name, email, phone, message, hasResponse but no timestamp field is shown.",
-      "evidence": [
-        "backend/main.mo"
+        "frontend/src/components/PortfolioProjectImage.tsx",
+        "frontend/src/components/sections/PortfolioSection.tsx (truncated)"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Footer includes a promotional/referral link to caffeine.ai ('Built with ... using caffeine.ai').",
-      "reason": "Not requested in the BuildRequest requirements/non-goals.",
+      "description": "Loading spinner/overlay while portfolio images load.",
+      "reason": "REQ-24 requires graceful fallback on error and performance-conscious loading, but does not request a loading indicator UI; this adds additional behavior/styling beyond the stated requirements.",
       "evidence": [
-        "frontend/src/components/Footer.tsx"
+        "frontend/src/components/PortfolioProjectImage.tsx"
       ]
     },
     {
-      "description": "Backend exposes a query to list all submitted contact forms (getSubmittedForms).",
-      "reason": "Not requested; only a backend endpoint to accept/store submissions was required.",
+      "description": "Setting img crossOrigin='anonymous' for external URLs.",
+      "reason": "Not requested by the BuildRequest/AC; it is an extra implementation detail added for external images.",
       "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "description": "Backend includes blob-storage mixin and related imports (MixinStorage), plus an unrequested hasResponse field in ContactForm.",
-      "reason": "Blob storage and response-tracking were not requested as part of the contact form storage requirements.",
-      "evidence": [
-        "backend/main.mo"
+        "frontend/src/components/PortfolioProjectImage.tsx"
       ]
     }
   ],
-  "confidence": 0.72,
+  "confidence": 0.62,
   "changed_files": [
-    "all_files_summary.json",
-    "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/src/App.tsx",
-    "frontend/src/components/Footer.tsx",
-    "frontend/src/components/GradientCTAButton.tsx",
-    "frontend/src/components/SectionShell.tsx",
-    "frontend/src/components/SiteHeader.tsx",
-    "frontend/src/components/sections/AboutSection.tsx",
-    "frontend/src/components/sections/ClientResultsSection.tsx",
-    "frontend/src/components/sections/ContactSection.tsx",
-    "frontend/src/components/sections/HeroSection.tsx",
+    "frontend/src/components/PortfolioProjectImage.tsx",
     "frontend/src/components/sections/PortfolioSection.tsx",
-    "frontend/src/components/sections/ServicesSection.tsx",
-    "frontend/src/components/sections/TestimonialsSection.tsx",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/index.css",
-    "frontend/src/lib/utils.ts",
-    "frontend/src/main.tsx",
-    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

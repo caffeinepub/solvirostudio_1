@@ -1,14 +1,17 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 17,
   "summary": "Create an extra-long, modern, professional, visually engaging portfolio website for SolviroStudio focused on Meta Ads and Creative Design services for solar companies, emphasizing measurable ROI and results.",
   "architectural_notes": [
     "Use brand accent/CTA gradient and highlights with #FFD233 → #FFA500 → #FF6A00.",
-    "Single long-scroll page layout with sections: Home (Hero), Portfolio, About Us, Services, Client Results, Testimonials, Contact Us; include CTA buttons in each major section."
+    "Single long-scroll page layout with sections: Home (Hero), Portfolio, About Us, Services, Client Results, Testimonials, Contact Us; include CTA buttons in each major section.",
+    "Logo placement: include SolviroStudio logo in both header and footer; ensure responsive sizing and alignment with the warm gradient theme.",
+    "Decision: Use the 7 uploaded images as new Portfolio project cards, each including title + goal + results text (not just visuals or moved to Client Results)."
   ],
-  "known_issues": [],
+  "known_issues": [
+    "Build/deployment encountered an internal configuration error (\"Please inform the Caffeine team\"); user requested rerunning the build."
+  ],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Team illustration in a modern, clean vector style with warm yellow/orange lighting (team-illustration.dim_1400x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-01.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-02.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-03.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-04.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-05.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-06.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-07.dim_1200x900.png)\n- Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-01.dim_1400x900.png)\n- Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-02.dim_1400x900.png)\n- Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-03.dim_1400x900.png)\n- Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-04.dim_1400x900.png)",
   "existing_features": [
     {
       "id": "feature-build-a-modern-clean-extra-long-single-page-portfolio-website-for-solvirostudio-with-a-sticky-top-navigation-menu-containing-home-portfolio-about-us-services-client-results-testimonials-contact-us-each-menu-item-must-scroll-to-its-corresponding-section-via-anchor-links-and-highlight-the-active-section-while-scrolling",
@@ -97,12 +100,166 @@
         "REQ-11"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-the-user-uploaded-solvirostudio-logo-image-chatgpt-image-feb-10-2026-06-11-32-am-1-png-to-the-app-as-a-static-asset-and-ensure-it-is-the-logo-shown-in-both-the-site-header-and-the-site-footer",
+      "title": "Add the user-uploaded SolviroStudio logo image (\"ChatGPT Image Feb 10, 2026, 06_11_32 AM-1.png\") to the app as a static asset and ensure it is the logo shown in both the site header and the site footer.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-increase-the-displayed-solvirostudio-logo-size-in-the-sticky-site-header-and-in-the-footer-keeping-the-logo-responsive-across-breakpoints-and-ensuring-it-remains-vertically-aligned-within-the-header-without-overlapping-navigation-or-the-mobile-menu-button",
+      "title": "Increase the displayed SolviroStudio logo size in the sticky site header and in the footer, keeping the logo responsive across breakpoints and ensuring it remains vertically aligned within the header without overlapping navigation or the mobile menu button.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-further-increase-the-displayed-solvirostudio-logo-size-in-both-the-sticky-site-header-and-the-footer-so-it-is-more-visible-while-keeping-the-logo-responsive-across-breakpoints-and-ensuring-it-remains-vertically-aligned-and-does-not-overlap-the-desktop-navigation-or-the-mobile-menu-button",
+      "title": "Further increase the displayed SolviroStudio logo size in both the sticky site header and the footer so it is more visible, while keeping the logo responsive across breakpoints and ensuring it remains vertically aligned and does not overlap the desktop navigation or the mobile menu button.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-7-user-provided-images-as-static-frontend-assets-and-use-them-as-the-portfolio-project-images-rendered-in-the-portfolio-section-grid",
+      "title": "Add the 7 user-provided images as static frontend assets and use them as the portfolio project images rendered in the Portfolio section grid.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-portfolio-section-s-portfolio-data-so-it-includes-exactly-7-entries-and-references-the-7-user-provided-images-replacing-the-current-generated-placeholder-images-as-needed",
+      "title": "Update the Portfolio section’s portfolio data so it includes exactly 7 entries and references the 7 user-provided images (replacing the current generated placeholder images as needed).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-portfolio-section-project-data-so-there-are-exactly-7-portfolio-project-card-entries-each-including-1-the-existing-image-path-for-one-of-the-7-uploaded-images-2-a-project-title-string-3-a-campaign-goal-string-and-4-a-results-text-string-human-readable-sentence-short-paragraph-in-addition-to-any-existing-metric-badges",
+      "title": "Update the Portfolio section project data so there are exactly 7 portfolio project card entries, each including: (1) the existing image path for one of the 7 uploaded images, (2) a project title string, (3) a campaign goal string, and (4) a results text string (human-readable sentence/short paragraph) in addition to any existing metric badges.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-portfolio-section-ui-so-each-portfolio-card-visibly-renders-the-project-title-the-goal-and-the-results-text-all-readable-without-hover-while-preserving-the-existing-grid-layout-hover-styling-and-metric-badges-rendering",
+      "title": "Update the Portfolio section UI so each portfolio card visibly renders the project Title, the Goal, and the Results text (all readable without hover), while preserving the existing grid layout, hover styling, and metric badges rendering.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-portfolio-card-image-accessibility-by-updating-each-card-image-alt-text-to-include-the-portfolio-project-title-instead-of-only-a-generic-index-based-label",
+      "title": "Improve portfolio card image accessibility by updating each card image alt text to include the portfolio project Title (instead of only a generic index-based label).",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-6-newly-uploaded-images-image-7-png-image-7-png-image-8-png-image-8-png-image-9-png-image-10-png-as-static-frontend-assets-and-use-them-as-the-images-for-portfolio-project-cards",
+      "title": "Add the 6 newly uploaded images (image-7.png, image-7.png, image-8.png, image-8.png, image-9.png, image-10.png) as static frontend assets and use them as the images for Portfolio project cards.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-portfolio-section-data-in-frontend-src-components-sections-portfoliosection-tsx-so-it-renders-a-portfolio-project-card-for-each-of-the-6-uploaded-images-and-populate-each-card-with-an-english-project-title-a-campaign-goal-a-results-text-paragraph-and-2-4-metric-badges-derived-from-what-is-visible-in-each-screenshot-e-g-roas-purchases-cost-per-purchase-conversion-value",
+      "title": "Update the Portfolio section data (in frontend/src/components/sections/PortfolioSection.tsx) so it renders a Portfolio project card for each of the 6 uploaded images, and populate each card with an English project title, a campaign goal, a results text paragraph, and 2–4 metric badges derived from what is visible in each screenshot (e.g., ROAS, purchases, cost per purchase, conversion value).",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-keep-the-existing-portfolio-card-ui-behavior-grid-layout-hover-styling-metric-badges-rendering-and-ensure-each-card-image-alt-text-includes-the-project-title-not-a-generic-index-based-alt",
+      "title": "Keep the existing Portfolio card UI behavior (grid layout, hover styling, metric badges rendering) and ensure each card image alt text includes the project title (not a generic index-based alt).",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-portfolio-section-so-portfolio-project-images-can-be-sourced-from-pinterest-by-using-user-provided-pinterest-image-urls-in-addition-to-the-existing-local-static-asset-image-paths",
+      "title": "Update the Portfolio section so portfolio project images can be sourced from Pinterest by using user-provided Pinterest image URLs (in addition to the existing local static asset image paths).",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-safe-rendering-behavior-for-externally-hosted-pinterest-portfolio-images-including-graceful-fallback-when-an-external-image-fails-to-load",
+      "title": "Add safe rendering behavior for externally hosted (Pinterest) portfolio images, including graceful fallback when an external image fails to load.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-a-clear-editable-place-in-the-codebase-to-configure-the-pinterest-image-urls-used-by-portfolio-project-cards-without-adding-a-pinterest-api-integration",
+      "title": "Provide a clear, editable place in the codebase to configure the Pinterest image URLs used by Portfolio project cards (without adding a Pinterest API integration).",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
     {
       "id": "AR-1",
       "summary": "Build SolviroStudio extra-long portfolio website with specified navigation sections, gradient brand colors, CTAs, services, portfolio projects, client results, testimonials, and contact form.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add the provided SolviroStudio logo to both the site header and the footer (footer inclusion required, not optional).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Increase the SolviroStudio logo size (header/footer) and adjust sizing responsively as needed.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Further increase the SolviroStudio logo size so it’s more visible (header/footer), maintaining responsive sizing and no overlap with nav/mobile menu.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add 7 user-provided images to the Portfolio section (integrate into the portfolio project visuals/gallery).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add all 7 user-provided images as new Portfolio project cards, each with a title, campaign goal, and results text.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Provide full access/exportable theme files so the user can customize the site theme themselves outside the app.",
+      "reqIds": [],
+      "status": "blocked"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add images sourced from Pinterest to the Portfolio section to enhance visual appeal.",
       "reqIds": [],
       "status": "pending"
     }

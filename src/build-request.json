@@ -1,270 +1,75 @@
 {
   "kind": "build_request",
-  "title": "SolviroStudio extra-long portfolio website (Meta Ads + Creative Design for solar companies)",
+  "title": "Allow Pinterest-sourced images in the Portfolio section",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Build a modern, clean, extra-long single-page portfolio website for “SolviroStudio” with a sticky top navigation menu containing: Home, Portfolio, About Us, Services, Client Results, Testimonials, Contact Us. Each menu item must scroll to its corresponding section via anchor links and highlight the active section while scrolling.",
+      "id": "REQ-23",
+      "text": "Update the Portfolio section so portfolio project images can be sourced from Pinterest by using user-provided Pinterest image URLs (in addition to the existing local static asset image paths).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-1"
         ],
         "quotes": [
-          "Navigation menu: Home / Portfolio / About Us / Services / Client Results / Testimonials / Contact Us",
-          "Scroll length: extra long, covering all above sections for strong client trust"
+          "Could you please add images from Pinterest to the portfolio section of my site? I’d like them included to enhance the visual appeal."
         ]
       },
       "acceptanceCriteria": [
-        "Top navigation displays the 7 specified items in the specified order.",
-        "Clicking a nav item scrolls smoothly to the correct section.",
-        "Active section state is visually indicated in the nav while scrolling.",
-        "Page includes all listed sections and is clearly “extra long” (i.e., substantial vertical content beyond a minimal landing page)."
+        "Portfolio project entries support an external image URL value (e.g., a direct Pinterest image URL) in addition to the existing local image path value.",
+        "When a Pinterest image URL is provided for a project, the card renders that URL in the image element instead of the local asset path.",
+        "Existing portfolio cards continue to render correctly when only local asset paths are provided (no regressions to layout, hover styling, metric badges, or visible title/goal/results text)."
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Implement the Home (Hero) section exactly with: headline “SolviroStudio – Meta Ads & Creative Designs That Solve Your Solar Business Challenges”, subheadline “We help solar companies attract leads, engage their audience, and maximize ROI with creative campaigns.”, a primary CTA button labeled “Get Started Now”, and a professional background gradient using #FFD233 → #FFA500 → #FF6A00.",
+      "id": "REQ-24",
+      "text": "Add safe rendering behavior for externally hosted (Pinterest) portfolio images, including graceful fallback when an external image fails to load.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-1"
         ],
         "quotes": [
-          "Homepage (Hero Section):",
-          "Headline: “SolviroStudio – Meta Ads & Creative Designs That Solve Your Solar Business Challenges”",
-          "Subheadline: “We help solar companies attract leads, engage their audience, and maximize ROI with creative campaigns.”",
-          "Call-to-action button: “Get Started Now”",
-          "Background: professional gradient using #FFD233 → #FFA500 → #FF6A00"
+          "add images from Pinterest to the portfolio section"
         ]
       },
       "acceptanceCriteria": [
-        "Hero section shows the exact headline and subheadline strings.",
-        "Hero background is a visible gradient using the specified three colors.",
-        "Hero includes a prominent “Get Started Now” button that scrolls to Contact Us (or opens the Contact section)."
+        "If a Pinterest-hosted image fails to load, the UI does not break; the card shows a non-broken fallback (e.g., swaps to a configured fallback local image or renders a neutral placeholder area) while preserving the rest of the card content (title, goal, results text, badges).",
+        "All portfolio images (local or Pinterest-hosted) include descriptive alt text that contains the project title (maintaining current accessibility behavior).",
+        "External images are loaded in a performance-conscious way (e.g., lazy loading) without changing the grid layout or card sizing behavior."
       ]
     },
     {
-      "id": "REQ-3",
-      "text": "Apply the brand accent colors #FFD233, #FFA500, #FF6A00 across the site for buttons, highlights, icons, and key accents, including a consistent gradient treatment (#FFD233 → #FFA500 → #FF6A00) for primary CTAs. Ensure buttons appear on every major section (Hero, About, Services, Portfolio, Client Results, Testimonials, Contact).",
+      "id": "REQ-25",
+      "text": "Provide a clear, editable place in the codebase to configure the Pinterest image URLs used by Portfolio project cards (without adding a Pinterest API integration).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-1"
         ],
         "quotes": [
-          "Colors to use: #FFD233, #FFA500, #FF6A00 (for buttons, accents, and highlights)",
-          "Highlight buttons, icons, and accents with gradient colors (#FFD233 → #FFA500 → #FF6A00)",
-          "Buttons should appear on every major section for easy navigation"
+          "add images from Pinterest to the portfolio section"
         ]
       },
       "acceptanceCriteria": [
-        "Primary CTA styling uses the specified gradient and is visually consistent across sections.",
-        "Every major section includes at least one clearly visible button CTA.",
-        "No other accent color palette overrides the provided brand colors for CTAs/highlights."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Create the “About SolviroStudio” section with the exact provided text and a “Learn More” CTA button, and include an optional image or team illustration adjacent to the text (responsive layout).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "About SolviroStudio Section:",
-          "Text: “At SolviroStudio, we specialize in Meta Ads and Creative Design to help solar companies overcome marketing challenges and achieve measurable growth.”",
-          "Include optional image or team illustration",
-          "Call-to-action button: “Learn More”"
-        ]
-      },
-      "acceptanceCriteria": [
-        "About section contains the exact provided paragraph text.",
-        "About section includes a “Learn More” button that scrolls to Services or a deeper About content block on the same page.",
-        "About section includes an illustration/image area that displays on desktop and stacks nicely on mobile."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Create a “Services” section listing exactly three services with 1–2 sentence descriptions each: (1) Meta Ads Management for Solar Companies, (2) Creative Design & Visual Campaigns, (3) ROI-Focused Lead Generation. Include an “Explore Services” CTA button.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Services Section:",
-          "Meta Ads Management for Solar Companies",
-          "Creative Design & Visual Campaigns",
-          "ROI-Focused Lead Generation",
-          "Each service has 1–2 sentence description",
-          "Call-to-action button: “Explore Services”"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Services section lists the three services exactly by name.",
-        "Each service includes a 1–2 sentence description emphasizing solar companies and measurable outcomes.",
-        "Services section includes an “Explore Services” button (scrolling to Portfolio or Contact)."
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Create a “Portfolio” section showcasing 5–7 projects with visuals. Each project card/block must include: an ad design image, a campaign goal line (e.g., generate solar leads), and results achieved (leads, engagement, ROI metrics). Include a “View Full Portfolio” CTA button.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Portfolio Section:",
-          "Showcase 5–7 projects with visuals",
-          "Each project block includes:",
-          "Ad Design Image",
-          "Campaign Goal (example: generate solar leads)",
-          "Results achieved (leads, engagement, ROI metrics)",
-          "Call-to-action button: “View Full Portfolio”"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Portfolio section contains between 5 and 7 project entries.",
-        "Each project entry displays an image, a campaign goal, and at least 2–3 concrete metrics (e.g., leads, CPL, CTR, ROAS/ROI).",
-        "Portfolio section includes “View Full Portfolio” button (scrolling to Contact or expanding additional items on-page)."
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Create a dedicated “Client Results” section with the exact provided intro text and a responsive gallery/grid area for multiple result screenshots/graphics (charts/metrics). Include a “Get Your Results” CTA button.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Client Results Section:",
-          "Text: “We deliver measurable results for solar companies. Here’s what our clients achieved with SolviroStudio:”",
-          "Include space for multiple result images or charts",
-          "Call-to-action button: “Get Your Results”"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Client Results section shows the exact provided sentence.",
-        "Section contains a multi-item responsive grid ready for multiple images/charts.",
-        "Section includes a “Get Your Results” button that scrolls to Contact Us."
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Create a “Testimonials” section containing 3–5 client quotes praising Meta Ads and Creative Design services for solar businesses and include the exact provided supporting text. Include a CTA in this section consistent with the sitewide button pattern.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Testimonials Section:",
-          "Include 3–5 client quotes praising Meta Ads and Creative Design services for solar businesses",
-          "Text: “Our clients love the results we deliver – from creative campaigns to lead generation.”"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Testimonials section includes 3–5 distinct quotes (written in English) that reference solar industry outcomes (leads, ROI, campaign performance).",
-        "Section contains the exact provided supporting text.",
-        "Section includes at least one CTA button (e.g., to Contact Us)."
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Create a “Contact Us” section with the exact provided text, display the email “solvirostudio@gmail.com”, show a phone placeholder, and include a simple contact form (name, email, optional phone, message) with a “Contact Me” submit button. On submit, validate required fields and show a clear success state.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Contact Us Section:",
-          "Text: “Ready to solve your solar business marketing challenges and see measurable results? Contact SolviroStudio today!”",
-          "Include:",
-          "Email: solvirostudio@gmail.com",
-          "Phone placeholder",
-          "Simple contact form",
-          "Call-to-action button: “Contact Me”"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Contact section shows the exact provided text and the exact email address.",
-        "Form includes fields: name, email, optional phone, message; and a submit button labeled “Contact Me”.",
-        "Client-side validation prevents submission when required fields are empty/invalid and shows inline errors.",
-        "On successful submit, the UI shows a success confirmation and clears the form.",
-        "A backend endpoint exists to accept and store contact submissions (name, email, phone, message, timestamp) and the frontend calls it on submit."
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Add brand/logo usage: incorporate the uploaded SolviroStudio logo image into the site header (and optionally the footer), ensuring it is responsive and visually consistent with the warm gradient brand theme.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "The user has uploaded 1 image(s): ChatGPT Image Feb 10, 2026, 06_11_32 AM.png."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Header displays the uploaded logo image at an appropriate size on desktop and mobile.",
-        "Logo does not distort (maintains aspect ratio) and remains readable on the chosen header background.",
-        "Clicking the logo scrolls to the Home/Hero section."
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "text": "Choose and apply one coherent, professional visual theme (typography, spacing, section separators, card styles) that complements the warm solar/energy brand colors and reinforces a trustworthy, results-focused feel. Use neutral background tones (e.g., off-white/charcoal/warm grays) to keep the orange/yellow accents readable and premium.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Modern, clean, and professional layout",
-          "Ensure the website feels trustworthy, problem-solving, and results-focused, especially for solar companies"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Theme is applied consistently across all sections (typography scale, spacing rhythm, card/button styles).",
-        "Contrast/readability is maintained (accent gradients do not reduce legibility of text).",
-        "Overall look is modern, clean, and professional (not overly playful or cluttered)."
+        "There is a single, obvious configuration location (e.g., within the existing portfolioProjects data in frontend/src/components/sections/PortfolioSection.tsx) where developers can paste Pinterest image URLs for each portfolio item.",
+        "No automated scraping/crawling/downloading from Pinterest is implemented; the system only renders explicitly configured URLs.",
+        "The app builds successfully with a mix of local asset image paths and Pinterest image URLs in the portfolioProjects data."
       ]
     }
   ],
   "constraints": [
-    "Frontend must be built with React + TypeScript, Tailwind CSS, Shadcn UI components, and React Query (compose UI components; do not edit immutable paths under frontend/src/components/ui or the Internet Identity hooks).",
-    "Backend must remain a single Motoko actor (no additional backend services).",
-    "Use the exact user-provided copy strings where specified (headlines, section texts, CTA labels, email).",
-    "Use brand colors exactly as provided for buttons/accents: #FFD233, #FFA500, #FF6A00."
+    "Do not implement a Pinterest API integration, scraping, or automated downloading of Pinterest content; only use user-provided direct image URLs or already-uploaded/static assets.",
+    "Do not edit any frontend immutable paths listed in SYSTEM_CONTEXT (compose existing components instead).",
+    "Keep the existing Portfolio section behavior (grid layout, hover styling, metric badges rendering, and visible title/goal/results text) unchanged aside from adding Pinterest image support."
   ],
   "nonGoals": [
-    "Implementing third-party email delivery (SMTP/SendGrid/Mailgun) for the contact form.",
-    "Adding third-party authentication providers (anything beyond Internet Identity).",
-    "Real-time chat or WebSocket-based features.",
-    "Building a CMS/editor for portfolio content."
+    "Adding a backend feature or storing Pinterest images in canister state.",
+    "Building an image proxy service or external hosting pipeline.",
+    "Changing the number of portfolio cards or rewriting portfolio copy unless required to wire in Pinterest images."
   ],
   "imageRequirements": {
-    "required": [
-      "Team illustration in a modern, clean vector style with warm yellow/orange lighting (team-illustration.dim_1400x900.png)",
-      "Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-01.dim_1200x900.png)",
-      "Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-02.dim_1200x900.png)",
-      "Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-03.dim_1200x900.png)",
-      "Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-04.dim_1200x900.png)",
-      "Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-05.dim_1200x900.png)",
-      "Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-06.dim_1200x900.png)",
-      "Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-07.dim_1200x900.png)",
-      "Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-01.dim_1400x900.png)",
-      "Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-02.dim_1400x900.png)",
-      "Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-03.dim_1400x900.png)",
-      "Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-04.dim_1400x900.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }
