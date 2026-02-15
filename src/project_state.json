@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Create an extra-long, modern, professional, visually engaging portfolio website for SolviroStudio focused on Meta Ads and Creative Design services for solar companies, emphasizing measurable ROI and results.",
+  "architectural_notes": [
+    "Use brand accent/CTA gradient and highlights with #FFD233 → #FFA500 → #FF6A00.",
+    "Single long-scroll page layout with sections: Home (Hero), Portfolio, About Us, Services, Client Results, Testimonials, Contact Us; include CTA buttons in each major section."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Team illustration in a modern, clean vector style with warm yellow/orange lighting (team-illustration.dim_1400x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-01.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-02.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-03.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-04.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-05.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-06.dim_1200x900.png)\n- Seven ad creative mockups with a solar/clean-energy theme, modern typography, and warm gradient accents (portfolio-ad-07.dim_1200x900.png)\n- Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-01.dim_1400x900.png)\n- Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-02.dim_1400x900.png)\n- Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-03.dim_1400x900.png)\n- Four clean campaign-results chart graphics with warm gradient highlights and readable metrics blocks (client-results-04.dim_1400x900.png)",
+  "existing_features": [
+    {
+      "id": "feature-build-a-modern-clean-extra-long-single-page-portfolio-website-for-solvirostudio-with-a-sticky-top-navigation-menu-containing-home-portfolio-about-us-services-client-results-testimonials-contact-us-each-menu-item-must-scroll-to-its-corresponding-section-via-anchor-links-and-highlight-the-active-section-while-scrolling",
+      "title": "Build a modern, clean, extra-long single-page portfolio website for “SolviroStudio” with a sticky top navigation menu containing: Home, Portfolio, About Us, Services, Client Results, Testimonials, Contact Us. Each menu item must scroll to its corresponding section via anchor links and highlight the active section while scrolling.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-home-hero-section-exactly-with-headline-solvirostudio-meta-ads-creative-designs-that-solve-your-solar-business-challenges-subheadline-we-help-solar-companies-attract-leads-engage-their-audience-and-maximize-roi-with-creative-campaigns-a-primary-cta-button-labeled-get-started-now-and-a-professional-background-gradient-using-ffd233-ffa500-ff6a00",
+      "title": "Implement the Home (Hero) section exactly with: headline “SolviroStudio – Meta Ads & Creative Designs That Solve Your Solar Business Challenges”, subheadline “We help solar companies attract leads, engage their audience, and maximize ROI with creative campaigns.”, a primary CTA button labeled “Get Started Now”, and a professional background gradient using #FFD233 → #FFA500 → #FF6A00.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-brand-accent-colors-ffd233-ffa500-ff6a00-across-the-site-for-buttons-highlights-icons-and-key-accents-including-a-consistent-gradient-treatment-ffd233-ffa500-ff6a00-for-primary-ctas-ensure-buttons-appear-on-every-major-section-hero-about-services-portfolio-client-results-testimonials-contact",
+      "title": "Apply the brand accent colors #FFD233, #FFA500, #FF6A00 across the site for buttons, highlights, icons, and key accents, including a consistent gradient treatment (#FFD233 → #FFA500 → #FF6A00) for primary CTAs. Ensure buttons appear on every major section (Hero, About, Services, Portfolio, Client Results, Testimonials, Contact).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-about-solvirostudio-section-with-the-exact-provided-text-and-a-learn-more-cta-button-and-include-an-optional-image-or-team-illustration-adjacent-to-the-text-responsive-layout",
+      "title": "Create the “About SolviroStudio” section with the exact provided text and a “Learn More” CTA button, and include an optional image or team illustration adjacent to the text (responsive layout).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-services-section-listing-exactly-three-services-with-1-2-sentence-descriptions-each-1-meta-ads-management-for-solar-companies-2-creative-design-visual-campaigns-3-roi-focused-lead-generation-include-an-explore-services-cta-button",
+      "title": "Create a “Services” section listing exactly three services with 1–2 sentence descriptions each: (1) Meta Ads Management for Solar Companies, (2) Creative Design & Visual Campaigns, (3) ROI-Focused Lead Generation. Include an “Explore Services” CTA button.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-portfolio-section-showcasing-5-7-projects-with-visuals-each-project-card-block-must-include-an-ad-design-image-a-campaign-goal-line-e-g-generate-solar-leads-and-results-achieved-leads-engagement-roi-metrics-include-a-view-full-portfolio-cta-button",
+      "title": "Create a “Portfolio” section showcasing 5–7 projects with visuals. Each project card/block must include: an ad design image, a campaign goal line (e.g., generate solar leads), and results achieved (leads, engagement, ROI metrics). Include a “View Full Portfolio” CTA button.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-dedicated-client-results-section-with-the-exact-provided-intro-text-and-a-responsive-gallery-grid-area-for-multiple-result-screenshots-graphics-charts-metrics-include-a-get-your-results-cta-button",
+      "title": "Create a dedicated “Client Results” section with the exact provided intro text and a responsive gallery/grid area for multiple result screenshots/graphics (charts/metrics). Include a “Get Your Results” CTA button.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-testimonials-section-containing-3-5-client-quotes-praising-meta-ads-and-creative-design-services-for-solar-businesses-and-include-the-exact-provided-supporting-text-include-a-cta-in-this-section-consistent-with-the-sitewide-button-pattern",
+      "title": "Create a “Testimonials” section containing 3–5 client quotes praising Meta Ads and Creative Design services for solar businesses and include the exact provided supporting text. Include a CTA in this section consistent with the sitewide button pattern.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-contact-us-section-with-the-exact-provided-text-display-the-email-solvirostudio-gmail-com-show-a-phone-placeholder-and-include-a-simple-contact-form-name-email-optional-phone-message-with-a-contact-me-submit-button-on-submit-validate-required-fields-and-show-a-clear-success-state",
+      "title": "Create a “Contact Us” section with the exact provided text, display the email “solvirostudio@gmail.com”, show a phone placeholder, and include a simple contact form (name, email, optional phone, message) with a “Contact Me” submit button. On submit, validate required fields and show a clear success state.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-brand-logo-usage-incorporate-the-uploaded-solvirostudio-logo-image-into-the-site-header-and-optionally-the-footer-ensuring-it-is-responsive-and-visually-consistent-with-the-warm-gradient-brand-theme",
+      "title": "Add brand/logo usage: incorporate the uploaded SolviroStudio logo image into the site header (and optionally the footer), ensuring it is responsive and visually consistent with the warm gradient brand theme.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-choose-and-apply-one-coherent-professional-visual-theme-typography-spacing-section-separators-card-styles-that-complements-the-warm-solar-energy-brand-colors-and-reinforces-a-trustworthy-results-focused-feel-use-neutral-background-tones-e-g-off-white-charcoal-warm-grays-to-keep-the-orange-yellow-accents-readable-and-premium",
+      "title": "Choose and apply one coherent, professional visual theme (typography, spacing, section separators, card styles) that complements the warm solar/energy brand colors and reinforces a trustworthy, results-focused feel. Use neutral background tones (e.g., off-white/charcoal/warm grays) to keep the orange/yellow accents readable and premium.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build SolviroStudio extra-long portfolio website with specified navigation sections, gradient brand colors, CTAs, services, portfolio projects, client results, testimonials, and contact form.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "SolviroStudio",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

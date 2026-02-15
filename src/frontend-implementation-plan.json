@@ -1,0 +1,351 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "SolviroStudio extra-long single-page portfolio (React + TS + Tailwind + shadcn/ui + React Query)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement an extra-long single-page layout with sticky anchor navigation (7 items) and scroll-spy active section highlighting.",
+      "acceptanceCriteria": [
+        "Top navigation displays the 7 specified items in the specified order.",
+        "Clicking a nav item scrolls smoothly to the correct section.",
+        "Active section state is visually indicated in the nav while scrolling.",
+        "Page includes all listed sections and is clearly “extra long” (i.e., substantial vertical content beyond a minimal landing page)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page app composition with 7 anchored sections (Home, Portfolio, About Us, Services, Client Results, Testimonials, Contact Us), ensuring each section has a stable id for anchor scrolling and enough content blocks to feel extra-long."
+        },
+        {
+          "path": "frontend/src/components/StickyNav.tsx",
+          "operation": "create",
+          "description": "Add a sticky top navigation component with the 7 specified items in order, smooth anchor scrolling, and an active state. Use shadcn-ui components (e.g., NavigationMenu/Button) to ensure consistent, accessible interactions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useActiveSection.ts",
+          "operation": "create",
+          "description": "Implement scroll-spy logic (IntersectionObserver-based) that tracks which section is active and exposes it to the sticky nav for highlighting."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global CSS to enable smooth scrolling behavior and baseline layout styling that supports sticky header offsets for anchor navigation."
+        },
+        {
+          "path": "frontend/src/components/SectionShell.tsx",
+          "operation": "create",
+          "description": "Create a reusable section wrapper that standardizes spacing, max-width, responsive padding, and optional section separators to keep the page cohesive and extra-long."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build the Home (Hero) section with exact headline/subheadline, gradient background, and primary CTA that scrolls to Contact Us.",
+      "acceptanceCriteria": [
+        "Hero section shows the exact headline and subheadline strings.",
+        "Hero background is a visible gradient using the specified three colors.",
+        "Hero includes a prominent “Get Started Now” button that scrolls to Contact Us (or opens the Contact section)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/sections/HeroSection.tsx",
+          "operation": "create",
+          "description": "Implement the Home/Hero section with the exact provided headline and subheadline strings, a background gradient using #FFD233 → #FFA500 → #FF6A00, and a “Get Started Now” CTA that scrolls to the Contact Us section. Use shadcn-ui Button for the CTA. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire HeroSection into the top of the single-page layout and ensure the “Get Started Now” CTA scroll target matches the Contact Us section id."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Apply the SolviroStudio brand accent colors and a consistent primary CTA gradient across the site; ensure CTAs exist in every major section.",
+      "acceptanceCriteria": [
+        "Primary CTA styling uses the specified gradient and is visually consistent across sections.",
+        "Every major section includes at least one clearly visible button CTA.",
+        "No other accent color palette overrides the provided brand colors for CTAs/highlights."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme tokens to include SolviroStudio brand colors (#FFD233, #FFA500, #FF6A00) and expose a reusable gradient token/utility approach for primary CTAs."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global CSS variables and/or utility composition classes to standardize the primary CTA gradient (#FFD233 → #FFA500 → #FF6A00), plus accessible focus/hover states that keep text readable."
+        },
+        {
+          "path": "frontend/src/components/GradientCTAButton.tsx",
+          "operation": "create",
+          "description": "Create a shared CTA button wrapper that applies the consistent SolviroStudio gradient treatment and is reused across Hero, About, Services, Portfolio, Client Results, Testimonials, and Contact sections. Use shadcn-ui Button as the base to maintain accessibility/consistency. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure each major section rendered in App includes at least one visible CTA (using GradientCTAButton) per requirement."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add the About SolviroStudio section with exact copy, responsive illustration area, and a Learn More CTA.",
+      "acceptanceCriteria": [
+        "About section contains the exact provided paragraph text.",
+        "About section includes a “Learn More” button that scrolls to Services or a deeper About content block on the same page.",
+        "About section includes an illustration/image area that displays on desktop and stacks nicely on mobile."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/team-illustration.dim_1400x900.png",
+          "operation": "create",
+          "description": "Add the generated team illustration asset at the exact required path so it can be referenced by the About section."
+        },
+        {
+          "path": "frontend/src/components/sections/AboutSection.tsx",
+          "operation": "create",
+          "description": "Implement the “About SolviroStudio” section containing the exact provided text and a “Learn More” CTA that scrolls to Services (or a deeper About block). Include a responsive image/illustration area using frontend/public/assets/generated/team-illustration.dim_1400x900.png. Use shadcn-ui Card/Separator/Button as appropriate for clean layout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire AboutSection into the page and ensure the Learn More CTA scroll target is correct."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add the Services section listing exactly three services with 1–2 sentence descriptions and an Explore Services CTA.",
+      "acceptanceCriteria": [
+        "Services section lists the three services exactly by name.",
+        "Each service includes a 1–2 sentence description emphasizing solar companies and measurable outcomes.",
+        "Services section includes an “Explore Services” button (scrolling to Portfolio or Contact)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/sections/ServicesSection.tsx",
+          "operation": "create",
+          "description": "Create the Services section listing exactly: (1) Meta Ads Management for Solar Companies, (2) Creative Design & Visual Campaigns, (3) ROI-Focused Lead Generation, each with a 1–2 sentence description. Add an “Explore Services” CTA that scrolls to Portfolio or Contact. Use shadcn-ui Card and Button for a professional grid. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ServicesSection into the page order and ensure anchor id matches the nav item (Services)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add a Portfolio section with 5–7 project cards featuring visuals, campaign goal, and results metrics, plus a View Full Portfolio CTA.",
+      "acceptanceCriteria": [
+        "Portfolio section contains between 5 and 7 project entries.",
+        "Each project entry displays an image, a campaign goal, and at least 2–3 concrete metrics (e.g., leads, CPL, CTR, ROAS/ROI).",
+        "Portfolio section includes “View Full Portfolio” button (scrolling to Contact or expanding additional items on-page)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/portfolio-ad-01.dim_1200x900.png",
+          "operation": "create",
+          "description": "Add the generated portfolio mockup asset at the exact required path so it can be referenced in the Portfolio section."
+        },
+        {
+          "path": "frontend/public/assets/generated/portfolio-ad-02.dim_1200x900.png",
+          "operation": "create",
+          "description": "Add the generated portfolio mockup asset at the exact required path so it can be referenced in the Portfolio section."
+        },
+        {
+          "path": "frontend/public/assets/generated/portfolio-ad-03.dim_1200x900.png",
+          "operation": "create",
+          "description": "Add the generated portfolio mockup asset at the exact required path so it can be referenced in the Portfolio section."
+        },
+        {
+          "path": "frontend/public/assets/generated/portfolio-ad-04.dim_1200x900.png",
+          "operation": "create",
+          "description": "Add the generated portfolio mockup asset at the exact required path so it can be referenced in the Portfolio section."
+        },
+        {
+          "path": "frontend/public/assets/generated/portfolio-ad-05.dim_1200x900.png",
+          "operation": "create",
+          "description": "Add the generated portfolio mockup asset at the exact required path so it can be referenced in the Portfolio section."
+        },
+        {
+          "path": "frontend/public/assets/generated/portfolio-ad-06.dim_1200x900.png",
+          "operation": "create",
+          "description": "Add the generated portfolio mockup asset at the exact required path so it can be referenced in the Portfolio section."
+        },
+        {
+          "path": "frontend/public/assets/generated/portfolio-ad-07.dim_1200x900.png",
+          "operation": "create",
+          "description": "Add the generated portfolio mockup asset at the exact required path so it can be referenced in the Portfolio section."
+        },
+        {
+          "path": "frontend/src/components/sections/PortfolioSection.tsx",
+          "operation": "create",
+          "description": "Implement a Portfolio section with 5–7 projects. Each card must include an ad design image (from frontend/public/assets/generated/portfolio-ad-01.dim_1200x900.png through portfolio-ad-07.dim_1200x900.png), a campaign goal line, and 2–3 concrete metrics. Add a “View Full Portfolio” CTA that scrolls to Contact or reveals more on-page. Use shadcn-ui Card/Button for consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire PortfolioSection into the page order and ensure anchor id matches the nav item (Portfolio)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add a Client Results section with exact intro text, a responsive results gallery, and a Get Your Results CTA.",
+      "acceptanceCriteria": [
+        "Client Results section shows the exact provided sentence.",
+        "Section contains a multi-item responsive grid ready for multiple images/charts.",
+        "Section includes a “Get Your Results” button that scrolls to Contact Us."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/client-results-01.dim_1400x900.png",
+          "operation": "create",
+          "description": "Add the generated client results chart asset at the exact required path so it can be referenced in the Client Results section."
+        },
+        {
+          "path": "frontend/public/assets/generated/client-results-02.dim_1400x900.png",
+          "operation": "create",
+          "description": "Add the generated client results chart asset at the exact required path so it can be referenced in the Client Results section."
+        },
+        {
+          "path": "frontend/public/assets/generated/client-results-03.dim_1400x900.png",
+          "operation": "create",
+          "description": "Add the generated client results chart asset at the exact required path so it can be referenced in the Client Results section."
+        },
+        {
+          "path": "frontend/public/assets/generated/client-results-04.dim_1400x900.png",
+          "operation": "create",
+          "description": "Add the generated client results chart asset at the exact required path so it can be referenced in the Client Results section."
+        },
+        {
+          "path": "frontend/src/components/sections/ClientResultsSection.tsx",
+          "operation": "create",
+          "description": "Create the Client Results section showing the exact provided intro text and a responsive gallery/grid displaying multiple images (frontend/public/assets/generated/client-results-01.dim_1400x900.png through client-results-04.dim_1400x900.png). Add a “Get Your Results” CTA that scrolls to Contact Us. Use shadcn-ui Card/Separator/Button for a clean layout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ClientResultsSection into the page order and ensure anchor id matches the nav item (Client Results)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add a Testimonials section with exact supporting text, 3–5 solar-focused quotes, and a consistent CTA.",
+      "acceptanceCriteria": [
+        "Testimonials section includes 3–5 distinct quotes (written in English) that reference solar industry outcomes (leads, ROI, campaign performance).",
+        "Section contains the exact provided supporting text.",
+        "Section includes at least one CTA button (e.g., to Contact Us)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/sections/TestimonialsSection.tsx",
+          "operation": "create",
+          "description": "Implement Testimonials with the exact provided supporting text and 3–5 distinct client quotes referencing solar outcomes. Include a CTA button consistent with the sitewide gradient pattern that scrolls to Contact Us. Use shadcn-ui Card/Button (and optionally Carousel/Accordion if available) for a professional presentation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire TestimonialsSection into the page order and ensure anchor id matches the nav item (Testimonials)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add the Contact Us section with exact copy, email/phone placeholder, validated form, and a success state that submits via backend interface using React Query.",
+      "acceptanceCriteria": [
+        "Contact section shows the exact provided text and the exact email address.",
+        "Form includes fields: name, email, optional phone, message; and a submit button labeled “Contact Me”.",
+        "Client-side validation prevents submission when required fields are empty/invalid and shows inline errors.",
+        "On successful submit, the UI shows a success confirmation and clears the form.",
+        "A backend endpoint exists to accept and store contact submissions (name, email, phone, message, timestamp) and the frontend calls it on submit."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/validation.ts",
+          "operation": "create",
+          "description": "Add lightweight client-side validation helpers for the contact form (required fields, email format) and per-field error messaging."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmitContactForm.ts",
+          "operation": "create",
+          "description": "Create a React Query mutation hook that calls the backendInterface submitContactForm capability and exposes loading/error/success state for the Contact form."
+        },
+        {
+          "path": "frontend/src/components/sections/ContactSection.tsx",
+          "operation": "create",
+          "description": "Implement the Contact Us section with the exact provided text, display solvirostudio@gmail.com, a phone placeholder, and a form (name, email, optional phone, message) with submit button label “Contact Me”. Validate required fields with inline errors and show a clear success state that clears the form. Use shadcn-ui Input/Textarea/Button/Alert components for consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ContactSection into the page order, ensure anchor id matches the nav item (Contact Us), and ensure all CTAs across the page scroll here."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Incorporate the uploaded SolviroStudio logo in the header (optional footer), responsive and clickable to scroll to Home.",
+      "acceptanceCriteria": [
+        "Header displays the uploaded logo image at an appropriate size on desktop and mobile.",
+        "Logo does not distort (maintains aspect ratio) and remains readable on the chosen header background.",
+        "Clicking the logo scrolls to the Home/Hero section."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/solvirostudio-logo.png",
+          "operation": "create",
+          "description": "Add the uploaded SolviroStudio logo image as a static public asset (copy from the provided upload) so it can be referenced by the header."
+        },
+        {
+          "path": "frontend/src/components/SiteHeader.tsx",
+          "operation": "create",
+          "description": "Create a responsive site header that includes the SolviroStudio logo (from frontend/public/assets/solvirostudio-logo.png) and the sticky nav. Ensure the logo maintains aspect ratio and clicking it scrolls to the Home/Hero section. Use shadcn-ui components where appropriate (e.g., Button for mobile menu trigger if needed). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire SiteHeader into the top-level layout and ensure it remains sticky and visually consistent with the warm gradient theme."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Apply a coherent professional theme (typography, spacing, separators, card styles) with neutral backgrounds and premium readability.",
+      "acceptanceCriteria": [
+        "Theme is applied consistently across all sections (typography scale, spacing rhythm, card/button styles).",
+        "Contrast/readability is maintained (accent gradients do not reduce legibility of text).",
+        "Overall look is modern, clean, and professional (not overly playful or cluttered)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global typography defaults (font smoothing, base text colors), neutral background tones, and consistent section spacing/separators that keep the warm gradient accents premium and readable."
+        },
+        {
+          "path": "frontend/src/components/SectionShell.tsx",
+          "operation": "modify",
+          "description": "Refine the shared section wrapper to enforce consistent spacing rhythm, section headings, and optional divider treatments across all sections."
+        },
+        {
+          "path": "frontend/src/components/ThemeTokens.ts",
+          "operation": "create",
+          "description": "Centralize reusable theme constants (e.g., className strings for headings, cards, subtle backgrounds) to keep visual styling consistent without scattering one-off styles."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure all sections use the shared theming primitives (SectionShell/ThemeTokens and shadcn-ui components) for consistent typography, spacing, and card/button styling."
+        }
+      ]
+    }
+  ]
+}
